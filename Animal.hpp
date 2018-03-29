@@ -8,22 +8,22 @@
 
 class Animal
 {
-	
-	private:
-		char name[25];
+		protected:
+		std::string name;
 		char gender;
 		__int8 age;
 		char size;
 		bool healthy;
-		
+	
 	public:
-		char*  getName()   				 { return name;    }
+		std::string&  getName()   	     { return name;    }
 		char   getGender() 				 { return gender;  }
 		int    getAge()    	             { return static_cast<int>(age);      }
 		char   getSize()  				 { return size;    }
-		bool   isHealthy()				 { return healthy; }
-		void   setHealthy(bool dhealthy) { healthy = dhealthy; }
-		void   setName(char* dname)      { memcpy(name,dname,strlen(dname)+1);}
+		std::string&   isHealthy()		 { return (healthy ? "Healthy" : "Unhealthy"); }
+		void   setHealthy(bool ahealthy) { healthy = ahealthy; }
+		virtual void sound() = 0;
+		
 		
 };
 
