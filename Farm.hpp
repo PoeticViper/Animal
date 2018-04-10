@@ -20,6 +20,7 @@ class Farm {
 			return input;
 		}
 		~Farm() {
+			delete animals;
 			std::cout << "The farm has burned down! Major oof";	
 		}
 };
