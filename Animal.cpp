@@ -2,7 +2,9 @@
 
 class Dog: public Animal
 {
-	
+		
+		private:
+		
 		public:
 		Dog(std::string dname, char dgender, __int8 dage, char dsize, bool dhealthy)
 		{
@@ -17,6 +19,17 @@ class Dog: public Animal
 		{
 			std::cout <<"Bark!\n";
 		}
+		
+		const char* isHealthy()
+		{
+			return Animal::isHealthy();
+		}
+		
+		~Dog()
+		{
+			std::cout << this->name + " has died!";
+		}
+
 };
 
 int main()

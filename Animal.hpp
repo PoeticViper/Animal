@@ -16,11 +16,13 @@ class Animal
 		bool healthy;
 	
 	public:
+		
+		
 		std::string&  getName()   	     { return name;    }
 		char   getGender() 				 { return gender;  }
 		int    getAge()    	             { return static_cast<int>(age);      }
 		char   getSize()  				 { return size;    }
-		std::string&   isHealthy()		 { return (healthy ? "Healthy" : "Unhealthy"); }
+		const char*   isHealthy()		 { return healthy ? "Healthy" : "Unhealthy"; }
 		void   setHealthy(bool ahealthy) { healthy = ahealthy; }
 		virtual void sound() = 0;
 		
