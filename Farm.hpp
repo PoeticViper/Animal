@@ -19,6 +19,9 @@ class Farm {
 			farm.animals.push_back(dynamic_cast<Animal*>(temp));
 			return input;
 		}
+		~Farm() {
+			std::cout << "The farm has burned down! Major oof";	
+		}
 };
 
 #endif
