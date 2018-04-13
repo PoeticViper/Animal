@@ -16,7 +16,7 @@ class Animal
 		char size;
 		bool healthy;
 		char* species;
-	
+		Animal* _animal;
 	public:
 		
 		
@@ -39,6 +39,11 @@ class Animal
 		return os;
 	}
 	
+	Animal *operator*( Animal* obj)
+	{
+		return _animal;
+}
+
 };
 
 #endif
