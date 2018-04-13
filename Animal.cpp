@@ -1,18 +1,19 @@
 #include "Animal.hpp"
-
+#include "Farm.hpp"
 class Dog: public Animal
 {
 		
 		private:
 		
 		public:
-		Dog(std::string dname, char dgender, __int8 dage, char dsize, bool dhealthy)
+		Dog(char* dname, char dgender, __int8 dage, char dsize, bool dhealthy)
 		{
 			name    = dname;
 			gender  = dgender;
 			age     = dage;
 			size    = dsize;
 			healthy = dhealthy;
+			species = "Dog";
 		}
 		
 		void sound()
@@ -25,18 +26,21 @@ class Dog: public Animal
 			return Animal::isHealthy();
 		}
 		
+		
 		~Dog()
 		{
-			std::cout << this->name + " has died!";
+			std::cout << this->name << " has died!" << std::endl;
 		}
 
 };
 
 int main()
 {
-	Dog abby((std::string)"Abby", 'F', 8, 'L', true);
 	
-	
+	Farm f;
+	Dog abby("Abby", 'F', 8, 'L', true);
+	abby >> f;
+	std::cout << abby;
 	std::cout << abby.getName() << " is a "       << abby.getGender() << std::endl;
  	std::cout << abby.getName() << "'s name is "  << abby.getName()   << std::endl;
 	std::cout << abby.getName() << " is "         << abby.getAge()    << std::endl;

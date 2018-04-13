@@ -1,27 +1,34 @@
-#include "Animal.hpp"
-#include <vector>
+
+
 #ifndef FARM_HPP
 #define FARM_HPP
-
+#include "Animal.hpp"
+#include <vector>
+#include <memory>
 class Farm {
 	
 		private:
 			 std::vector<Animal*>animals;
+			 
+			 Animal* convertToAnimal(std::istream*& input)
+			 {
+			 	std::istream *temp = *&input;
+			 	return dynamic_cast<Animal*>(temp);
+			 }
 			
 		public:
 			Animal* getAnimal(int index)
 			{
 				return animals.at(index);
 			}
-		friend std::istream&  operator>>(std::istream& input, Farm& farm)
+		friend Animal* operator>>(Animal* animal, Farm& farm)
 		{
-			std::istream* temp = input;
-			farm.animals.push_back(dynamic_cast<Animal*>(temp));
-			return input;
+			farm.animals.push_back(animal);
+			return animal;
 		}
+
 		~Farm() {
-			delete animals;
-			std::cout << "The farm has burned down! Major oof";	
+			std::cout << "The farm has burned down! Major oof" << std::endl;	
 		}
 };
 
