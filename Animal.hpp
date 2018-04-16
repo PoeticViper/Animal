@@ -16,7 +16,6 @@ class Animal
 		char size;
 		bool healthy;
 		char* species;
-		Animal* _animal;
 	public:
 		
 		
@@ -28,6 +27,7 @@ class Animal
 		char* getSpecies()               { return species;	}
 		void   setHealthy(bool ahealthy) { healthy = ahealthy; }
 		virtual void sound() = 0;
+
 		friend std::ostream& operator<<(std::ostream& os, Animal& dt)  
 {  
 		os << "Species: " << dt.getSpecies()   << std::endl;
@@ -39,10 +39,11 @@ class Animal
 		return os;
 	}
 	
-	Animal *operator*( Animal* obj)
-	{
-		return _animal;
-}
+			
+		~Animal()
+		{
+			std::cout << name << " has died!" << std::endl;
+		}
 
 };
 
