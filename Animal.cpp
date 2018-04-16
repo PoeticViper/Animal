@@ -4,6 +4,7 @@ class Dog: public Animal
 {
 		
 		private:
+			
 		public:
 		Dog(char* dname, char dgender, __int8 dage, char dsize, bool dhealthy)
 		{
@@ -24,11 +25,11 @@ class Dog: public Animal
 		{
 			return Animal::isHealthy();
 		}
-		
-		~Dog()
-		{
-			std::cout << this->name << " has died!" << std::endl;
-		}
+		Animal*operator*()
+	{
+		return this;
+}
+
 
 };
 
@@ -37,15 +38,12 @@ int main()
 	
 	Farm f;
 	Dog abby("Abby", 'F', 8, 'L', true);
-	Animal* a;
-	*a = abby;
-	*a >> *f;
-	std::cout << abby;
+	*abby >> f;
 	std::cout << abby.getName() << " is a "       << abby.getGender() << std::endl;
  	std::cout << abby.getName() << "'s name is "  << abby.getName()   << std::endl;
 	std::cout << abby.getName() << " is "         << abby.getAge()    << std::endl;
 	std::cout << abby.getName() << " size is "    << abby.getSize()   << std::endl;
 	std::cout << abby.getName() << " is "         << abby.isHealthy() << std::endl;
 	abby.sound();
-	
+	return 0;
 }
