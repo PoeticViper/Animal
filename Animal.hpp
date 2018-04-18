@@ -38,7 +38,19 @@ class Animal
 		os << "Health: "  << dt.isHealthy() << std::endl;
 		return os;
 	}
-	
+		friend std::istream& operator>>(std::istream& is, Animal& dt)
+		{
+			std::cout << " Enter the name of the animal: ";
+			std::cin >> dt.name;
+			std::cout <<"\nEnter the age of the animal: ";
+			std::cin >> dt.age;
+			std::cout <<"\nEnter the gender of the animal: ";
+			std::cin >> dt.gender;
+			std::cout << "\nEnter the size of the animal: ";
+			std::cin >> dt.size;
+			dt.healthy = true;
+			return is;
+		}
 			
 		~Animal()
 		{
